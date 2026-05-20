@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; background-color: #f4f4f4; }
+        .dashboard { background: white; padding: 30px; max-width: 600px; margin: 0 auto; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 20px; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; }
+        .btn-logout { display: inline-block; padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; }
+        .btn-logout:hover { background-color: #bd2130; }
+        span { font-weight: bold; color: #007bff; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+    <h2>Selamat Datang, <span th:text="${profile.nama}">Nama User</span>!</h2>
+    <p>Berikut adalah data akun Anda yang berhasil disimpan ke dalam database:</p>
+
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Data Terdaftar</th>
+        </tr>
+        <tr>
+            <td><strong>User ID</strong></td>
+            <td th:text="${user.id}">ID Otomatis</td>
+        </tr>
+        <tr>
+            <td><strong>Username</strong></td>
+            <td th:text="${user.username}">Username</td>
+        </tr>
+        <tr>
+            <td><strong>Nama Lengkap</strong></td>
+            <td th:text="${profile.nama}">Nama</td>
+        </tr>
+        <tr>
+            <td><strong>Alamat</strong></td>
+            <td th:text="${profile.alamat}">Alamat</td>
+        </tr>
+    </table>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn-logout">Logout dari Sistem</button>
+    </form>
+</div>
+
+</body>
+</html>
