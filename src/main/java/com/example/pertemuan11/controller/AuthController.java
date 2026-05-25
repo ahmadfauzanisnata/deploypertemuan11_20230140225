@@ -24,6 +24,11 @@ public class AuthController {
         return "register";
     }
 
+    @PostMapping("/register")
+    public String register(@ModelAttribute RegisterRequest request) {
+        authService.register(request);
+        return "redirect:/login";
+    }
 
     @GetMapping("/login")
     public String loginPage() {
