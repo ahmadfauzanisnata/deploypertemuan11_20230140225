@@ -1,6 +1,6 @@
 package com.example.pertemuan11.model.dto;
 
-import lombok.Data;
+
 
 @Data
 public class RegisterRequest {
