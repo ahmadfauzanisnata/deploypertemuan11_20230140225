@@ -18,4 +18,15 @@ public class AuthController {
         this.authService = authService;
     }
 
+    @GetMapping("/register")
+    public String registerPage(Model model) {
+        model.addAttribute("request", new RegisterRequest());
+        return "register";
+    }
+
+
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
 }
